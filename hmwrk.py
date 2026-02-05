@@ -57,3 +57,37 @@ class AddressBook(UserDict):
     def __str__(self):
         return "\n".join(str(record) for record in self.data.values())
 
+print(":3"*5 + " " "Hi! I'mAddressBook" " " + ":3"*5)
+print("") 
+ad = AddressBook()
+
+r1 = Record("Ala")
+r1.add_phone("1234567890")
+ad.add_record(r1)
+
+r2 = Record("Bob")
+r2.add_phone("0987654321")
+ad.add_record(r2)
+
+print(f"="*5 + "AddressBook" + "="*5)
+print(ad)
+
+r1.add_phone("2818384912")
+print("\n=== After adding another phone to Ala ===")
+print(ad)
+
+r1.edit_phone("1234567890", "4837838345")
+print("\n=== After editing Ala's phone ===")
+print(ad)
+
+r1.remove_phone("4837838345")
+print("\n=== After removing Ala's phone ===")
+print(ad)
+
+found = ad.find("Ala")
+print("\n=== Found Ala ===")
+print(found)
+
+not_found = ad.find("Charlie")
+print("\n=== Found Charlie ===")
+print(not_found if not_found else "Not found")
